@@ -1,0 +1,17 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="${spring.application.name}"/>
+    <dubbo:registry address="${order.service.dubbo.registry.address}" timeout="${order.service.dubbo.registry.timeout}" protocol="${order.service.dubbo.protocol}"/>
+    <dubbo:protocol name="${order.service.dubbo.protocol}" port="${order.service.dubbo.protocol.port}"/>
+    <dubbo:provider timeout="${order.service.dubbo.provider.timeout}" retries="${order.service.dubbo.provider.retries}" loadbalance="${order.service.dubbo.provider.loadbalance}"/>
+    <dubbo:consumer check="${order.service.dubbo.consumer.check}"/>
+
+    <!-- 暴露接口 -->
+    <bean id="orderService" class="com.skeleton.order.service.provider.impl.OrderServiceImpl"/>
+    <dubbo:service interface="com.skeleton.order.service.api.IOrderService" timeout="2000" ref="orderService"/>
+
+</beans>

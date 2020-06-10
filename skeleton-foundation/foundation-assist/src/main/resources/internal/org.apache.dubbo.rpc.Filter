@@ -1,0 +1,4 @@
+providerLoggingFilter=com.skeleton.foundation.assist.filter.dubbo.ProviderLoggingFilter
+consumerLoggingFilter=com.skeleton.foundation.assist.filter.dubbo.ConsumerLoggingFilter
+consumerExceptionFilter=com.skeleton.foundation.assist.filter.dubbo.ConsumerExceptionFilter
+providerExceptionFilter=com.skeleton.foundation.assist.filter.dubbo.ProviderExceptionFilter

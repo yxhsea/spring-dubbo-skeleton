@@ -1,0 +1,16 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="${spring.application.name}"/>
+    <dubbo:registry address="${outside.service.dubbo.registry.address}" timeout="${outside.service.dubbo.registry.timeout}" protocol="${outside.service.dubbo.protocol}"/>
+    <dubbo:protocol name="${outside.service.dubbo.protocol}" port="${outside.service.dubbo.protocol.port}"/>
+    <dubbo:provider timeout="${outside.service.dubbo.provider.timeout}" retries="${outside.service.dubbo.provider.retries}" loadbalance="${outside.service.dubbo.provider.loadbalance}"/>
+    <dubbo:consumer check="${outside.service.dubbo.consumer.check}"/>
+
+    <!-- 暴露接口 -->
+    <bean id="outsideService" class="com.skeleton.outside.service.provider.impl.ThirdPartyServiceImpl"/>
+    <dubbo:service interface="com.skeleton.outside.service.api.IThirdParty" timeout="2000" ref="outsideService"/>
+</beans>

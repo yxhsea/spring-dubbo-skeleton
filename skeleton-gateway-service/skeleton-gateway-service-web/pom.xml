@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>skeleton-parent</artifactId>
+        <groupId>com.skeleton</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>skeleton-gateway-service-web</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.skeleton</groupId>
+            <artifactId>skeleton-outside-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.skeleton</groupId>
+            <artifactId>skeleton-user-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.skeleton</groupId>
+            <artifactId>skeleton-order-service-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.skeleton</groupId>
+            <artifactId>foundation-web</artifactId>
+            <version>${foundation-web.version}</version>
+        </dependency>
+    </dependencies>
+</project>

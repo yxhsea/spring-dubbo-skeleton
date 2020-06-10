@@ -1,0 +1,25 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="${spring.application.name}"/>
+    <dubbo:registry address="${user.service.dubbo.registry.address}" timeout="${user.service.dubbo.registry.timeout}" protocol="${user.service.dubbo.registry.timeout}"/>
+    <dubbo:protocol name="${user.service.dubbo.protocol}" port="${user.service.dubbo.protocol.port}"/>
+    <dubbo:provider timeout="${user.service.dubbo.provider.timeout}" retries="${user.service.dubbo.provider.retries}" loadbalance="${user.service.dubbo.provider.loadbalance}"/>
+    <dubbo:consumer check="${user.service.dubbo.consumer.check}"/>
+
+<!--    <dubbo:application name="user"/>-->
+<!--    <dubbo:registry address="zookeeper://127.0.0.1:2181" timeout="3000" protocol="zookeeper"/>-->
+<!--    <dubbo:protocol name="dubbo" port="30888"/>-->
+<!--    <dubbo:provider timeout="3000" retries="0" loadbalance="leastactive"/>-->
+<!--    <dubbo:consumer check="false"/>-->
+<!--    <dubbo:config-center address="zookeeper://127.0.0.1:2181"/>-->
+<!--    <dubbo:metadata-report address="zookeeper://127.0.0.1:2181"/>-->
+
+    <!-- 暴露接口 -->
+    <bean id="userService" class="com.skeleton.user.service.provider.impl.UserServiceImpl"/>
+    <dubbo:service interface="com.skeleton.user.service.api.IUserService" timeout="2000" ref="userService"/>
+
+</beans>

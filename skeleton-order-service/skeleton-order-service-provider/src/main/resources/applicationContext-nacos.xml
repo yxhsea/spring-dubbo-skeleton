@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:nacos="http://nacos.io/schema/nacos"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+ 	    http://www.springframework.org/schema/context/spring-context.xsd
+ 	    http://www.springframework.org/schema/beans
+ 	    http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://nacos.io/schema/nacos http://nacos.io/schema/nacos.xsd">
+
+<!--    <nacos:property-source data-id="common.properties" group-id="${spring.application.name}" auto-refreshed="true"/>-->
+
+    <!-- dubbo 配置-->
+    <nacos:property-source data-id="dubbo.properties" group-id="${spring.application.name}" auto-refreshed="true"/>
+
+</beans>

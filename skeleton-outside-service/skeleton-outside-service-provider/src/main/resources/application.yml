@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: outside-service
+  profiles:
+    active: '@env@'
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  sleuth:
+    sampler:
+      percentage: 1
+nacos:
+  config:
+    server-addr: '@config.address@'
+    namespace: '@namespace@'
+logging:
+  level:
+    root: '@log.level@'
+  file:
+    path: ${user.home}/data/logs/${spring.application.name}
+server:
+  port: 9001
+aliyun:
+  oss:
+    accessKeyId:
+    accessKeySecret:
+    endpoint:
+    bucket:
+    key:
+    tempPath:
+    domain:
